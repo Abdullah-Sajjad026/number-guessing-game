@@ -6,6 +6,7 @@ const hint = document.querySelector('#hint');
 const alertBox = document.querySelector('#alertBox');
 const hintPara = document.querySelector('.hint-para');
 const playAgainBtn = document.querySelector('#play-again-btn');
+const submitBtn = document.querySelector('.submit-btn');
 
 // adding form event listener
 form.addEventListener('submit', generateResult);
@@ -68,6 +69,7 @@ function gameWon() {
 
     // disabling input
     numberInput.setAttribute('disabled', '');
+    submitBtn.setAttribute('disabled', '');
     // displaying playAgainBtn
     playAgainBtn.classList.remove('d-none');
     playAgainBtn.addEventListener('click', () => window.location.reload());
@@ -83,6 +85,7 @@ function gameLost() {
 
     // disabling input
     numberInput.setAttribute('disabled', '');
+    submitBtn.setAttribute('disabled', '');
     // displaying playAgainBtn
     playAgainBtn.classList.remove('d-none');
     playAgainBtn.addEventListener('click', () => window.location.reload());
