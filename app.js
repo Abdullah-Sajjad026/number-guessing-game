@@ -27,7 +27,9 @@ function generateResult(e) {
     guessList += `  ${userGuess}`;
     guesses.innerHTML = guessList;
 
-    if (guessCount <= 10) {
+    if (guessCount > 10) {
+        gameLost();
+    } else {
 
         if (userGuess !== randomNumber) {
             //changing alertBox
@@ -45,8 +47,6 @@ function generateResult(e) {
             gameWon();
         }
 
-    } else {
-        gameLost();
     }
 
 
