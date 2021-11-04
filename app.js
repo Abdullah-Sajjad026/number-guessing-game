@@ -24,12 +24,12 @@ function generateResult(e) {
     const userGuess = Number(numberInput.value);
     numberInput.value = '';
 
-    guessList += `  ${userGuess}`;
-    guesses.innerHTML = guessList;
-
-    if (guessCount < 10) {
+    
+    if (guessCount = 10) {
         gameLost();
     } else {
+guessList += `  ${userGuess}`;
+    guesses.innerHTML = guessList;
 
         if (userGuess !== randomNumber) {
             //changing alertBox
