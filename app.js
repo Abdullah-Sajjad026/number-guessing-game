@@ -25,7 +25,7 @@ function generateResult(e) {
     numberInput.value = '';
 
     
-    if (guessCount = 10) {
+    if (guessCount === 10) {
         gameLost();
     } else {
 guessList += `  ${userGuess}`;
