@@ -30,12 +30,13 @@
                     <h1 class="text-primary">
                         <img style="width: 2rem; height: 2rem;" class="me-1 align-center" src="icon.png"
                             alt="number guessing game icon">
-                        Number Guessing Game</h1>
-                    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer.
+                        Guess My Number</h1>
+                    <p class="my-3">We have selected a random number between 1 and 100. See if you can guess it in 10
+                        turns or fewer.
                         We'll tell you if your guess was too high or too low.</p>
                     <form class="number-form">
                         <div class="my-3">
-                            <label for="number-input" class="form-label">Enter a guess:</label>
+                            <label for="number-input" class="form-label">Enter a guess 👇 :</label>
                             <div class="input-group">
                                 <input type="number" id="number-input" class="form-control">
                                 <span class="input-group-text"><input type="submit" value="Check"
@@ -44,13 +45,14 @@
                         </div>
                     </form>
                     <div class="results">
-                        <p class="previous-para">Previous guesses: <span class="text-black ps-2" id="guesses"></span>
-                        </p>
-                        <div class="alert alert-dark" id="alertBox" role="alert">
+                        <div class="alert alert-dark fw-bold mt-1" id="alertBox" role="alert">
                             Let's see how well you do!
                         </div>
-                        <p class="hint-para d-none">Last guess was too <span class="text-dark fw-bolder"
-                                id="hint"></span>
+                        <p class="hint-para mt-4 mb-3 d-none">Last guess was too <span
+                                class="text-dark fw-bolder fst-italic" id="hint"></span>
+                        </p>
+                        <p class="previous-para d-none"> Previous Guesses: <span class="text-black ps-2 fst-italic"
+                                id="guesses"></span>
                         </p>
                         <a class="btn btn-primary d-none" id="play-again-btn">Play Again!</a>
                     </div>

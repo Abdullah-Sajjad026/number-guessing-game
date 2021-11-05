@@ -2,6 +2,7 @@
 const form = document.querySelector('.number-form');
 const numberInput = document.querySelector('#number-input');
 const guesses = document.querySelector('#guesses');
+const previousPara = document.querySelector('.previous-para');
 const hint = document.querySelector('#hint');
 const alertBox = document.querySelector('#alertBox');
 const hintPara = document.querySelector('.hint-para');
@@ -20,6 +21,8 @@ let guessList = ' ';
 
 function generateResult(e) {
     ++guessCount;
+
+    previousPara.classList.remove('d-none');
 
     const userGuess = Number(numberInput.value);
     numberInput.value = '';
