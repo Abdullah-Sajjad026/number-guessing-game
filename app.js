@@ -12,51 +12,49 @@ const submitBtn = document.querySelector('.submit-btn');
 form.addEventListener('submit', generateResult);
 
 // generating global variables to be used for one time and throughout program.
-const randomNumber = Math.floor(Math.random() * 101);
+const randomNumber = Math.floor(Math.random() * 100 + 1);
 // logging random number for web developers
 console.log(` Ah! Console log explorer, randomNumber is ${randomNumber}.`);
 let guessCount = 0;
 let guessList = ' ';
 
 function generateResult(e) {
-    guessCount += 1;
+    ++guessCount;
 
     const userGuess = Number(numberInput.value);
     numberInput.value = '';
-
-    
-    if (guessCount >=10) {
-        gameLost();
-    } else {
-guessList += `  ${userGuess}`;
+    guessList += `  ${userGuess}`;
     guesses.innerHTML = guessList;
 
-        if (userGuess !== randomNumber) {
+    if (userGuess === randomNumber) {
+        if (guessCount < 11)
+            gameWon();
+
+    } else {
+        if (guessCount > 9) {
+            gameLost();
+        } else {
             //changing alertBox
-            alertBox.textContent = 'Wrong Guess';
+            alertBox.textContent = '⛔ Wrong Guess';
             alertBox.classList.replace('alert-dark', 'alert-warning');
 
             // modifying hint
             hintPara.classList.remove('d-none');
             if (userGuess > randomNumber) {
-                hint.textContent = 'High';
+                hint.textContent = '📈 High';
             } else if (userGuess < randomNumber) {
-                hint.textContent = 'Low';
+                hint.textContent = '📉 Low';
             }
-        } else {
-            gameWon();
         }
-
     }
-
-
     e.preventDefault();
 }
 
 function gameWon() {
-
+    // changing body bg color
+    document.querySelector('body').classList.replace('bg-light', 'bg-success')
     //changing alertBox
-    alertBox.textContent = 'Congratulations! You got it right.'
+    alertBox.textContent = '🎉 Correct Number'
     if (alertBox.classList.contains('alert-warning')) {
         alertBox.classList.replace('alert-warning', 'alert-success');
     } else {
@@ -77,7 +75,7 @@ function gameWon() {
 
 function gameLost() {
     //changing alertBox
-    alertBox.textContent = 'Oops! Guess count completed. You LOST the game. Try your best next time.';
+    alertBox.textContent = '🔒 10 turns completed.';
     alertBox.classList.replace('alert-warning', 'alert-danger');
 
     // modifying hint
